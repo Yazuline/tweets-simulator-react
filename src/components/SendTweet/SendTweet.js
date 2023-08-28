@@ -9,8 +9,8 @@ import   {TWEET_STORAGE} from "../../Utils/constans";
 import { useState } from 'react';
 import { FormSendTweet } from '../FormSendTweet/FormSendTweet';
 
-const SendTweet = () => {
-  
+const SendTweet = (props) => {
+  const {setToastProps}=props;
   const [isOpenModal, setIsOpenModal]= useState(false)
   
   const openModal = ()=>{
@@ -26,12 +26,21 @@ const SendTweet = () => {
     const {name, tweet} = formValue;
     let allTweetArray=[];
     if (!name || !tweet){
-      console.log("WARNIG: Todos los campos son obligatorios");
+      //console.log("WARNIG: Todos los campos son obligatorios");
+      setToastProps({
+        open:true,
+        text:"WARNIG: Todos los campos son obligatorios"
+      })
     } else{
       formValue.time=moment();
       allTweetArray.push(formValue);
       localStorage.setItem(TWEET_STORAGE, JSON.stringify(allTweetArray));
-      console.log("Tweet enviado correctamente")
+      //console.log("Tweet enviado correctamente")
+
+      setToastProps({
+        open:true,
+        text:"Tweet enviado correctamente"
+      })
       closeModal();
     }
     allTweetArray=[];
