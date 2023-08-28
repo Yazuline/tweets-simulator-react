@@ -17,6 +17,10 @@ const SendTweet = () => {
   const closeModal= ()=>{
     setIsOpenModal(false);
   }
+
+  const sendTweet =()=>{
+    console.log("Tweets a enviar")
+  }
   return (
     <div  className="send-tweet">
         
@@ -29,7 +33,7 @@ const SendTweet = () => {
 
         <ModalContainer isOpenModal={isOpenModal}  closeModal={closeModal} >
              <p>ModalContainer</p>
-           <FormSendTweet/>
+           <FormSendTweet  sendTweet={sendTweet}/>
         </ModalContainer>
        </div>
   )
