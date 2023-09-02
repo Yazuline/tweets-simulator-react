@@ -10,7 +10,7 @@ import { useState } from 'react';
 import { FormSendTweet } from '../FormSendTweet/FormSendTweet';
 
 const SendTweet = (props) => {
-  const {setToastProps}=props;
+  const {setToastProps, allTwees}=props;
   const [isOpenModal, setIsOpenModal]= useState(false)
   
   const openModal = ()=>{
@@ -25,6 +25,11 @@ const SendTweet = (props) => {
     event.preventDefault();
     const {name, tweet} = formValue;
     let allTweetArray=[];
+
+    if (allTwees){
+      
+      allTweetArray=allTwees;
+    }
     if (!name || !tweet){
       //console.log("WARNIG: Todos los campos son obligatorios");
       setToastProps({
