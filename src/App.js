@@ -21,10 +21,11 @@ function App() {
     setReloadTweets(false)
 
   },[reloadTweets]);
+
   const deleteTweet =(index)=>{
     allTwees.splice(index,1)
     setAllTweets(allTwees)
-    localStorage.setItem(TWEET_STORAGE, JSON.parse(allTwees))
+    localStorage.setItem(TWEET_STORAGE, JSON.stringify(allTwees))
     setReloadTweets(true)
 
   }

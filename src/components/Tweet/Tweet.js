@@ -5,7 +5,7 @@ import moment from 'moment'
 import './Tweet.scss'
 
 const Tweet = (props) => {
-    const {tweet:{name, tweet,time,deleteTweet}, index}=props
+    const {tweet:{name, tweet,time}, index, deleteTweet}=props
   return (
     <Card className='tweet'>
 
